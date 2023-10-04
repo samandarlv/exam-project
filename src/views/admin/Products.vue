@@ -4,8 +4,9 @@
     <delete_product ref="deleteProduct" />
     <h1>Products</h1>
     <button class="btn btn-success" @click="openCreateModal">
-      Add new Product
+      Add a new Product
     </button>
+    <button class="btn btn-danger mx-5" @click="logout">Logout</button>
     <div class="col-12 my-5">
       <div class="row">
         <div class="col-4" v-for="(item, index) in products" :key="index">
@@ -56,7 +57,7 @@
   import $http from "../../components/plugins/axios";
   import create_product from "../../components/pages/create_product.vue";
   import delete_product from "../../components/pages/delete_product.vue";
-
+  import logout from "../../components/plugins/logout";
   const createProduct = ref();
   const deleteProduct = ref();
 

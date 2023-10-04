@@ -1,5 +1,5 @@
 export default {
   path: "/",
-  name: "auht",
+  name: "auth",
   component: () => import("@/views/auth/Auth"),
 };

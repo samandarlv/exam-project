@@ -22,7 +22,7 @@
 
   const yes = () => {
     $http
-      .delete(`/products/${new_id.value}`)
+      .delete(`/users/${new_id.value}`)
       .then((res) => {
         Notification("Product deleted successfully", "slide", "success");
         setTimeout(() => {

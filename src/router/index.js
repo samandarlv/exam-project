@@ -15,12 +15,12 @@ router.beforeEach((to, from, next) => {
   const token = localStorage.getItem("token");
   const role = localStorage.getItem("role");
   const name = to.name === "auth";
-
-  if (!token && !name && !role) {
+  
+  if (!token && !name) {
     return next({ name: "auth" });
   } else {
-    if (token && name) {
-      return next({ name: "admin" });
+    if (token && role) {
+      return next();
     } else {
       next();
     }

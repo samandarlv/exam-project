@@ -1,6 +1,6 @@
 <template>
   <AppModal v-model="dialog">
-    <Form @submit="create">
+    <Form @submit="editing ? save : add">
       <Field
         rules="required"
         :modelValue="form.name"
@@ -139,6 +139,7 @@
   };
 
   const save = (e) => {
+    e.preventDefault();
     $http
       .patch(`/products/update/${form.value._id}`, form.value)
       .then((res) => {
@@ -161,9 +162,9 @@
         setTimeout(() => {
           location.reload();
         }, 3000);
+        dialog.value = false;
       })
       .catch((err) => console.log(err));
-    dialog.value = false;
   };
 
   defineExpose({ openModal });
